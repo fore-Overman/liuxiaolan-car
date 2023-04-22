@@ -14,7 +14,12 @@ public enum CommonStatusEnum {
      *  1:成功   0：失败
      * */
     SUCCESS(1,"success"),
-    FAIL(0,"fail")
+    FAIL(0,"fail"),
+
+    /**
+     * Token 类错误提示
+     * */
+    TOKEN_ERROR(1199,"toker错误")
     ;
 
     @Getter
