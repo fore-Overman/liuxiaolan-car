@@ -1,7 +1,8 @@
 package com.liuxiaolan.servicepassengeruser.service;
 
+import com.liuxiaolan.internalcommon.constant.CommonStatusEnum;
+import com.liuxiaolan.internalcommon.dto.PassengerUser;
 import com.liuxiaolan.internalcommon.dto.ResponseResult;
-import com.liuxiaolan.servicepassengeruser.dto.PassengerUser;
 import com.liuxiaolan.servicepassengeruser.mapper.PassengerUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,20 @@ public class UserService {
         return ResponseResult.success();
     }
 
+
+
+    public ResponseResult getUserByPhone(String passengerPhone) {
+        //根据用户手机号查询用户信息
+        Map<String,Object> map = new HashMap<>();
+        map.put("passenger_phone",passengerPhone);
+        List<PassengerUser> passengerUsers = passengerUserMapper.selectByMap(map);
+        if(passengerUsers.size() == 0){
+           return ResponseResult.fail(CommonStatusEnum.USER_NOT_EXISTS.getCode(),CommonStatusEnum.USER_NOT_EXISTS.getValue());
+        }else{
+            PassengerUser passengerUser = passengerUsers.get(0);
+            return ResponseResult.success(passengerUser);
+        }
+    }
 
 
 

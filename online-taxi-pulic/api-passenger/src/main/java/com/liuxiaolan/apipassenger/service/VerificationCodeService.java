@@ -75,10 +75,10 @@ public class VerificationCodeService {
         if(!verificationCode.trim().equals(codeRedis.trim())){
             return ResponseResult.fail(CommonStatusEnum.VERIFICATION_CODE_FAIL.getCode(),CommonStatusEnum.VERIFICATION_CODE_FAIL.getValue());
         }
-       //判断是否有原用户 进行相应处理
+
         VerificationCodeDTO verificationCodeDTO = new VerificationCodeDTO();
         verificationCodeDTO.setPassengerPhone(passengerPhone);
-        //插入用户
+        //  /判断是否有原用户 进行相应处理 然后 插入用户
         ResponseResult result = servicePassengerUserClient.loginOrRegister(verificationCodeDTO);
       //颁发令牌  JWT  通过json的方式   标识应该用枚举/常量
       String accessToken = JwtUtils.generatorToken(passengerPhone, IndentityConstant.PASSENGER_INDENTITY, TokenConstants.ACCESS_TOKEN_TYPE);

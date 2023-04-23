@@ -19,7 +19,14 @@ public enum CommonStatusEnum {
     /**
      * Token 类错误提示
      * */
-    TOKEN_ERROR(1199,"toker错误")
+    TOKEN_ERROR(1199,"toker错误"),
+
+
+    /**
+     * 用户类提示 1200-1299
+     * */
+     USER_NOT_EXISTS(1200,"当前用户信息不存在")
+
     ;
 
     @Getter

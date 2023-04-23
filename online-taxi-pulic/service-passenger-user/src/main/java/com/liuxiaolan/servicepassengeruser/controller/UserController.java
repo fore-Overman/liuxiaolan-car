@@ -4,9 +4,7 @@ import com.liuxiaolan.internalcommon.dto.ResponseResult;
 import com.liuxiaolan.internalcommon.request.VerificationCodeDTO;
 import com.liuxiaolan.servicepassengeruser.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -21,14 +19,19 @@ public class UserController {
     */
     @PostMapping("/user")
     public ResponseResult loginOrRegister(@RequestBody VerificationCodeDTO verificationCodeDTO){
-
         String passengerPhone = verificationCodeDTO.getPassengerPhone();
-
         return userService.loginOrRegister(passengerPhone);
     }
 
-
-
+    /** 方法描述 根据用户手机号查询用户信息
+    * @return
+    * @author liuxiaolan
+    * @date 2023/4/23
+    */
+    @GetMapping("/user/{passengerPhnoe}")
+    public ResponseResult getUser(@PathVariable("passengerPhnoe") String passengerPhone){
+        return userService.getUserByPhone(passengerPhone);
+    }
 
 
 

@@ -24,7 +24,9 @@ public class JwtUtils {
     private static final String JWT_KEY_IDENTITY = "identity";
 
     //token 类型
-    private  static final String JWI_TOKEN_TYPE = "tokenType";
+    private static final String JWI_TOKEN_TYPE = "tokenType";
+
+    private static final String JWT_TOKEN_TIME = "tokenTime";
 
     /** 方法描述生成token   token有过期时间
     * @return
@@ -40,7 +42,8 @@ public class JwtUtils {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE,1);
         Date date =  calendar.getTime();
-
+        //生成时间
+        map.put(JWT_TOKEN_TIME,date.toString());
         JWTCreator.Builder builder = JWT.create();
         //将map中的值 迭代至 builder中
         map.forEach( (k,v) -> {
