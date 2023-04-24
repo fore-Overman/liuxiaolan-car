@@ -1,4 +1,4 @@
-package com.liuxiaolan.apipassenger.service;
+package com.liuxiaolan.serviceprice.service;
 
 import com.liuxiaolan.internalcommon.dto.ResponseResult;
 import com.liuxiaolan.internalcommon.responese.ForecastPriceResponse;
@@ -8,18 +8,28 @@ import org.springframework.stereotype.Service;
 public class ForecastPriceService {
 
 
-    /** 方法描述 根据出发地目的地的经纬度计算预估价格
-    * @return
-    * @author liuxiaolan
-    * @date 2023/4/23
-    */
     public ResponseResult forecastPrice(String depLongitude,String depLatitude,
                                         String destLongitude,String destLatitude){
 
-        //计算价格   计价服务
+
+        //调用地图服务 查询距离和时长
+
+        //读取计价规则
+
+
+        //根据距离时长  及  计价规则 计算价格
+
+
 
         ForecastPriceResponse forecastPriceResponse = new ForecastPriceResponse();
         forecastPriceResponse.setPrice("23.44");
         return ResponseResult.success(forecastPriceResponse);
     }
+
+
+
+
+
+
+
 }
