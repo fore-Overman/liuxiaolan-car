@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class ForecastPriceResponse {
 
-    private String price;
+    private double price;
 
 }
