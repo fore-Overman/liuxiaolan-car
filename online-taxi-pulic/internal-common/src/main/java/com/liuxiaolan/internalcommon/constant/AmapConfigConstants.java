@@ -4,6 +4,9 @@ public class AmapConfigConstants {
 
     public static final String DIRECTTION_URL = "https://restapi.amap.com/v3/direction/driving";
 
+    public static final String DISTRICT_URL = "https://restapi.amap.com/v3/config/district";
+
+
     //路径规划 解析 key值   0:失败   1：成功
     public static final String STATUS = "status";
 
