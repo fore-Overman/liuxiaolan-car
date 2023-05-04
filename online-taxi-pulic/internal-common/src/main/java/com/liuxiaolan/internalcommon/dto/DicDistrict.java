@@ -10,6 +10,6 @@ public class DicDistrict {
 
     private String parentAddressCode;
 
-    private String level;
+    private Integer level;
 
 }
